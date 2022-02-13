@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  data: any;
+
+  constructor(private backend: BackendService) { }
 
   ngOnInit(): void {
+  }
+
+  getResponse(): void {
+    this.backend.getHello().subscribe((data) => {
+      if (data) this.data = data;
+    });
   }
 
 }

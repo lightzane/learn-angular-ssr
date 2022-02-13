@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -8,10 +9,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private snackbar: MatSnackBar) { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: string,
+    private snackbar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
-    document.title = 'Express Engine | Angular Universal (SSR)';
+    if (isPlatformBrowser(this.platformId)) {
+      document.title = 'Express Engine | Angular Universal (SSR)';
+    }
   }
 
   copiedSnackbar(): void {

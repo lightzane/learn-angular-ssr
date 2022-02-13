@@ -18,6 +18,42 @@ npx ng add @nguniversal/express-engine
 npm run dev:ssr
 ```
 
+## Working around the browser APIs
+
+Because a Universal application doesn't execute in the browser, some of the browser APIs and capabilities might be missing on the server.
+
+For example, server-side applications can't reference browser-only global objects such as `window`, `document`, `navigator`, or `location`.
+
+```ts
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+})
+export class HomeComponent implements OnInit {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: string,
+    private snackbar: MatSnackBar,
+  ) {}
+
+  ngOnInit(): void {
+    // this will prevent the error coming in the server logs
+    // e.g. ERROR ReferenceError: document is not defined
+    if (isPlatformBrowser(this.platformId)) {
+      document.title = 'Express Engine | Angular Universal (SSR)';
+    }
+  }
+}
+```
+
+Angular provides some injectable abstractions over these objects, such as `Location` or `DOCUMENT`; it might substitute adequately for these APIs. If Angular doesn't provide it, it's possible to write new abstractions that delegate to the browser APIs while in the browser and to an alternative implementation while on the server (also known as shimming).
+
+Reference: https://angular.io/guide/universal#working-around-the-browser-apis
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
