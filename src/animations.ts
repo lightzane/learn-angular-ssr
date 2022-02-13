@@ -7,15 +7,15 @@ export const fadeIn = trigger('fadeIn', [
     transition('* <=> *', [
         query(':enter, :leave', [
             style({ opacity: 0, position: 'absolute' })
-        ]),
+        ], { optional: true }),
         group([
             query(':enter', [
                 style({ opacity: 0, transform: 'translateX(-100px)' }),
                 animate(duration)
-            ]),
+            ], { optional: true }),
             query(':leave', [
                 animate(duration, style({ opacity: 0 }))
-            ])
+            ], { optional: true })
         ])
     ])
 ]);
