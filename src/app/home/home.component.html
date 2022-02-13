@@ -1,1 +1,56 @@
-<p>home works!</p>
+<h1>Angular Universal <span class="mat-subheading-1">Server-side Rendering (SSR)</span> </h1>
+<h2>Express Engine</h2>
+
+<mat-card class="mb-3" [style.maxWidth.vh]="100">
+  <code style="font-size: 16px">
+    ng add @nguniversal/express-engine
+  </code>
+</mat-card>
+
+<h3>
+  <u>Issue: Unable to resolve dependency tree</u>
+</h3>
+<p>You may encounter the following errors.<br /></p>
+
+<mat-card class="mb-3" [style.maxWidth.vh]="100">
+  <mat-card-content>
+    <pre>
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+npm ERR! While resolving: learn-angular-ssr@0.0.0
+npm ERR! Found: @angular/animations@12.1.5
+npm ERR! node_modules/@angular/animations
+npm ERR!   @angular/animations@"~12.1.2" from the root project
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer @angular/animations@"12.2.16" from @angular/platform-server@12.2.16
+npm ERR! node_modules/@angular/platform-server
+                                                                        press-engine@12.1.0
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!</pre>
+  </mat-card-content>
+</mat-card>
+
+<p>This may be a known compatibility issue in <code>NPM@7</code></p>
+<a
+  href="https://github.com/angular/angular-cli/issues/19957#issuecomment-775407654"
+  target="_blank"
+>
+  <span>
+    https://github.com/angular/angular-cli/issues/19957#issuecomment-775407654
+  </span>
+  <mat-icon>launch</mat-icon>
+</a>
+
+<h2 class="mt-5">Workaround</h2>
+<mat-card [style.maxWidth.vh]="100">
+  <mat-card-content>
+    <code style="font-size: 16px">
+      ng add @nguniversal/express-engine --legacy-peer-deps
+    </code>
+  </mat-card-content>
+</mat-card>

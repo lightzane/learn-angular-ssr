@@ -1,11 +1,19 @@
 <mat-toolbar color="primary">
   <div class="container">
-    <button mat-button routerLink="home">HOME</button>
-    <button mat-button routerLink="about">ABOUT</button>
-    <button mat-button routerLink="example">EXAMPLE</button>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <button mat-button routerLink="home">HOME</button>
+        <button mat-button routerLink="about">ABOUT</button>
+        <button mat-button routerLink="example">EXAMPLE</button>
+      </div>
+    </div>
   </div>
 </mat-toolbar>
 
-<div class="container my-3">
-  <router-outlet></router-outlet>
+<div class="container my-3 pb-5" [@fadeIn]="prepareOutlet(outlet)">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+  </div>
 </div>
