@@ -1,5 +1,9 @@
 # LearnAngularSsr
 
+![](https://img.shields.io/badge/angular-12-red) --> ![](https://img.shields.io/badge/angular-13-red)
+
+Learning Server-side rendering in Angular
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
 ## Migrated to Angular 13
