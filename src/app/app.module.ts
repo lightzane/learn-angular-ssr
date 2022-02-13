@@ -13,7 +13,7 @@ import { SNACKBAR_CONFIG } from './shared/snackbar.config';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule

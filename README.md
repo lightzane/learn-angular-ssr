@@ -11,6 +11,13 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13 --force
 npx @angular/cli@13 update @angular/material@13
 ```
 
+## Add Angular Universal (Express Engine)
+
+```
+npx ng add @nguniversal/express-engine
+npm run dev:ssr
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
