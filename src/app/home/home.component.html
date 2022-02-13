@@ -1,10 +1,16 @@
 <h1>Angular Universal <span class="mat-subheading-1">Server-side Rendering (SSR)</span> </h1>
 <h2>Express Engine</h2>
 
-<mat-card class="mb-3" [style.maxWidth.vh]="100">
-  <code style="font-size: 16px">
-    ng add @nguniversal/express-engine
-  </code>
+<mat-card class="mb-3 py-2" [style.maxWidth.vh]="100">
+  <div class="d-flex align-items-center">
+    <code style="font-size: 16px">
+      ng add @nguniversal/express-engine
+    </code>
+    <div class="spacer"></div>
+    <button mat-icon-button color="primary" cdkCopyToClipboard="ng add @nguniversal/express-engine" alt="Copy code snippet" title="Copy code snippet" (click)="copiedSnackbar()">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
 </mat-card>
 
 <h3>
@@ -49,8 +55,14 @@ npm ERR!</pre>
 <h2 class="mt-5">Workaround</h2>
 <mat-card [style.maxWidth.vh]="100">
   <mat-card-content>
-    <code style="font-size: 16px">
-      ng add @nguniversal/express-engine --legacy-peer-deps
-    </code>
+    <div class="d-flex align-items-center">
+      <code style="font-size: 16px">
+        ng add @nguniversal/express-engine --legacy-peer-deps
+      </code>
+      <div class="spacer"></div>
+      <button mat-icon-button color="primary" cdkCopyToClipboard="ng add @nguniversal/express-engine --legacy-peer-deps" alt="Copy code snippet" title="Copy code snippet" (click)="copiedSnackbar()">
+        <mat-icon>content_copy</mat-icon>
+      </button>
+    </div>
   </mat-card-content>
 </mat-card>
